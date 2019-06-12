@@ -23,4 +23,4 @@ The suffix denotes:
  
 
 ## Getting Started
-The complete simulation code will be posted soon. Stay tuned!
+We are currently preparing the code for public release. We expect that it will be uploaded on or before July 15, 2019.
