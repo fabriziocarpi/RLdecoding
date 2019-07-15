@@ -88,3 +88,5 @@ Change in `eval.py`:
 ### Notes
 
 The current scripts replicate the results for RM (2,5) [LBF-NN] and [s+d LBF-NN].
+
+Please send any feedback, comment or request to [Fabrizio Carpi](https://fabriziocarpi.github.io/) or [Christian Häger](http://www.christianhaeger.de/index.html).
