@@ -1,0 +1,9 @@
+#!/bin/bash
+echo process ID: $$
+echo $$ > last_pid
+tic=$(date +%s)
+python3 opt.py
+toc=$(date +%s)
+sec=$(expr $toc - $tic)
+min=$(expr $sec / 60)
+echo Elapsed time: $sec 

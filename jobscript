@@ -1,0 +1,26 @@
+#!/bin/bash
+echo process ID: $$
+echo $$ > last_pid
+tic=$(date +%s)
+dB_range=[1,2,3,4,5,6,7,8]
+minCwErr=200
+maxCw=1000000
+resultPath="/home/fc94/RL_source/ray_results/CodeEnv/APEX_CodeEnv_0_2019-07-12_10-29-3546gmngz9"
+
+####### Parallelization of test task
+# 3 processes consume >20 GB memory
+# for NUM in {1..2}; do
+	# python3 eval.py $dB_range $minCwErr $maxCw $NUM --path=$resultPath --save &
+	# sleep 0.1
+# done
+
+####### Single test process
+NUM=1
+python3 eval.py $dB_range $minCwErr $maxCw $NUM --path=$resultPath --save &
+
+
+wait
+toc=$(date +%s)
+sec=$(expr $toc - $tic)
+min=$(expr $sec / 60)
+echo Elapsed time: $sec

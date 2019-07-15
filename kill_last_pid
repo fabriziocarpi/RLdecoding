@@ -1,0 +1,4 @@
+#!/bin/bash
+kill -9 -`cat last_pid`
+# pgrep ray_worker
+# pkill -9 -f "ray_worker"

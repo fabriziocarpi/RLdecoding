@@ -1,0 +1,11 @@
+name: rllib
+channels:
+        - conda-forge
+dependencies:
+        - python
+        - pip
+        - cudatoolkit==9.0
+        - tensorflow-gpu==1.12.0
+        - pip:
+                - gym[atari]
+                - ray[rllib]==0.6.6
