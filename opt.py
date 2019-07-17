@@ -13,6 +13,9 @@ from CodeEnv import *
 # config {{{
 # ============================================================== #
 
+codedir = "/home/fc94/RL_source"
+tmpdir = "/tmp/fc94"
+
 config = with_common_config(
     {
     "env_config": {
@@ -22,7 +25,7 @@ config = with_common_config(
         "maxIter" : 10,  # maximum iterations (agent's life)
         "WBF" : False,   # weighted bit-flipping
         "asort" : True, # automorphism sort
-		"path_to_Hmat" : "/home/fc94/RL_source/Hmat"
+		"path_to_Hmat" : codedir + "/Hmat"
     },
     "env": CodeEnv,
     "log_level": "WARN",
@@ -148,7 +151,7 @@ config = with_common_config(
 # run optimizations {{{
 # ============================================================== #
 #ray.init()
-ray.init(temp_dir='/tmp/fc94/ray')  # you may need to change the temp directory in case it runs on a cluster or shared machine
+ray.init(temp_dir=tmpdir+"/ray")  # you may need to change the temp directory in case it runs on a cluster or shared machine
 
 
 tune.run(
@@ -157,7 +160,7 @@ tune.run(
     name="CodeEnv",
     checkpoint_at_end=True,
     num_samples=1,
-    local_dir="/home/fc94/RL_source/ray_results",
+    local_dir=codedir+"/ray_results",
     #stop={"episode_reward_mean": 10},
     stop={"training_iteration": 150},
     config=config
