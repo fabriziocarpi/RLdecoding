@@ -48,14 +48,15 @@ Make sure Ray and RLlib are installed. An example of Anaconda environment is pro
 
 ### 1) Update config settings and log folder
 
-Copy the folder `Hmat` to a desired directory `<MY_Hmat_PATH>`.
-In `opt.py`, update the config dictionary settings and set the log folder in the call to `tune.run()`.
+In `opt.py`, edit the following:
+> codedir = "<MY_PATH>"    
+> tmpdir = "<TEMP_RAY_DIR>"
 
-> "path_to_Hmat" : "<MY_Hmat_PATH>",   
-> ray.init(temp_dir='<TEMP_RAY_DIR>'),    
-> local_dir="<RAY_RESULTS_DIR>",    
+Then, copy the folder `Hmat` to the project directory, i.e., `codedir/Hmat`.
+The log folder is set to `codedir/ray_results`.
+The Ray session will store temporary files in `tmpdir/ray`.
 
-Note that, in `opt.py`, accordingly to computation capabilities, the number of CPU/GPU may be edited as well:
+Note that, in `opt.py`, the training hyperparameters can be changed. Moreover, accordingly to computation capabilities, the number of CPU/GPU may be edited as well:
 > "num_gpus" : <N_GPUs>,    
 > "num_workers": <N_CPUs>
 
@@ -65,8 +66,7 @@ Note that, in `opt.py`, accordingly to computation capabilities, the number of C
 
 Use `optscript` to run `opt.py` from the terminal. This file just writes the process ID to the file `last_pid` and calls `opt.py`. In case something goes wrong, use `kill_last_pid` to terminate this process and all child processes created by Ray.
 
-Note that a new directory `<TRAINED_AGENT_DIR>`, containing all the model's files, will be created:
-> <RAY_RESULTS_DIR>/CodeEnv/<TRAINED_AGENT_DIR>
+Note that a new directory `<TRAINED_AGENT_DIR>`, containing all the model's files, will be created under `codedir/ray_results/CodeEnv/<TRAINED_AGENT_DIR>`
 
 
 Tensorboard can be used with the specified log directory to monitor the training progress.
@@ -74,14 +74,14 @@ Tensorboard can be used with the specified log directory to monitor the training
 
 ### 3) Evaluate the trained model
 
-Finally, use `jobscript` to evaluate the trained model for a specified range of SNRs. This script calls `eval.py` which then saves the results into .mat files.
+Finally, use `jobscript` to evaluate the trained model for a specified range of SNRs. This script calls `eval.py` which then saves the results into .mat and .txt files.
 
 Modify `jobscript`, inserting the proper folder for your trained model:
-> resultPath="<RAY_RESULTS_DIR>/CodeEnv/<TRAINED_AGENT_DIR>"    
+> resultPath = "insert-path-to-<TRAINED_AGENT_DIR>"    
 
 
-Change in `eval.py`:
-> ray.init(temp_dir='<TEMP_RAY_DIR>')    
+As in point 1), change in `eval.py`:
+> tmpdir = "<TEMP_RAY_DIR>"   
 
 
 ---
