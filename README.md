@@ -6,7 +6,7 @@ Additional details are explained in this paper:
 
 * F. Carpi, C. Häger, M. Martalò, R. Raheli, H. D. Pfister, "[Reinforcement
   Learning for Channel Coding: Learned Bit-Flipping
-  Decoding](http://arxiv.org/pdf/tbd.pdf)", arxiv, June 2019
+  Decoding](https://arxiv.org/abs/1906.04448)", arxiv, June 2019
 
 ---
 
