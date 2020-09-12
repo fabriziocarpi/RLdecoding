@@ -6,7 +6,9 @@ Additional details are explained in this paper:
 
 * F. Carpi, C. Häger, M. Martalò, R. Raheli, H. D. Pfister, "[Reinforcement
   Learning for Channel Coding: Learned Bit-Flipping
-  Decoding](https://arxiv.org/abs/1906.04448)", arxiv, June 2019
+  Decoding](https://doi.org/10.1109/ALLERTON.2019.8919799)", in Proc. 2019 57th Annual Allerton Conference on Communication, Control and Computing (Allerton), Monticello, IL, USA, September 2019.
+  
+   [Arxiv:1906.04448](https://arxiv.org/abs/1906.04448)
 
 ---
 
